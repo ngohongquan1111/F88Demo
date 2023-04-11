@@ -141,6 +141,12 @@
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Service\Domain\BusinessModel\Interfaces\IRequest.cs" />
+    <Compile Include="Service\Domain\BusinessModel\Interfaces\IResponse.cs" />
+    <Compile Include="Service\Domain\BusinessModel\Models\RejectLoanApplicationRequest.cs" />
+    <Compile Include="Service\Domain\BusinessModel\Models\ApproveLoanApplicationRequest.cs" />
+    <Compile Include="Service\Domain\Entity\Customer.cs" />
+    <Compile Include="Service\Domain\Entity\LoanApplication.cs" />
     <Compile Include="Service\IRequestFactoryContext.cs" />
     <Compile Include="Service\Workflow\WorkFlow.cs" />
   </ItemGroup>
@@ -183,11 +189,10 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
+    <Folder Include="Common\" />
     <Folder Include="Models\" />
     <Folder Include="Service\DataBaseContext\" />
     <Folder Include="Service\DataProviderContext\" />
-    <Folder Include="Service\Domain\BusinessModel\" />
-    <Folder Include="Service\Domain\Entity\" />
     <Folder Include="Service\Jobs\" />
   </ItemGroup>
   <ItemGroup>
