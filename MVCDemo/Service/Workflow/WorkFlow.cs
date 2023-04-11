@@ -13,9 +13,16 @@ namespace MVCDemo.Service.Workflow
 
     public class WorkFlow : IWorkFlow<IRequest, IResponse>
     {
+        private readonly IRequestFactoryContext _requestFactoryContext;
+
+        public WorkFlow(IRequestFactoryContext requestFactoryContext)
+        {
+            _requestFactoryContext = requestFactoryContext;
+        }
+
         public IResponse ExecuteRequest(IRequest request)
         {
-            throw new NotImplementedException();
+            var request = _requestFactoryContext.CreatRequest(request);
         }
     }
 }

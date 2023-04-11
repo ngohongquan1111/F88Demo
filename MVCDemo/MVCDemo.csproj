@@ -141,8 +141,10 @@
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Service\Domain\BusinessModel\Interfaces\ICandidate.cs" />
     <Compile Include="Service\Domain\BusinessModel\Interfaces\IRequest.cs" />
     <Compile Include="Service\Domain\BusinessModel\Interfaces\IResponse.cs" />
+    <Compile Include="Service\Domain\BusinessModel\Models\Candidate.cs" />
     <Compile Include="Service\Domain\BusinessModel\Models\RejectLoanApplicationRequest.cs" />
     <Compile Include="Service\Domain\BusinessModel\Models\ApproveLoanApplicationRequest.cs" />
     <Compile Include="Service\Domain\Entity\Customer.cs" />

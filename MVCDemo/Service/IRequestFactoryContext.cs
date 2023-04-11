@@ -1,18 +1,20 @@
-﻿using System;
+﻿using MVCDemo.Service.Domain;
+using MVCDemo.Service.Domain.BusinessModel.Interfaces;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 
 namespace MVCDemo.Service
 {
-    public interface IRequestFactoryContext
+    public interface IRequestFactoryContext<in TRequest, out TCandidate>
     {
-        void CreatRequest();
+        TCandidate CreatRequest(TRequest request);
     }
 
-    public class RequestFactory : IRequestFactoryContext
+    public class RequestFactory : IRequestFactoryContext<IRequest, ICandidate>
     {
-        public void CreatRequest()
+        public ICandidate CreatRequest(IRequest request)
         {
             throw new NotImplementedException();
         }
