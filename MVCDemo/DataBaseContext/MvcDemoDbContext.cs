@@ -25,8 +25,6 @@ namespace MVCDemo.Service.DataBaseContext
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
             base.OnModelCreating(modelBuilder);
-            modelBuilder.Entity<Customer>().MapToStoredProcedures();
-            modelBuilder.Entity<LoanApplication>().MapToStoredProcedures();
         }
     }
 }

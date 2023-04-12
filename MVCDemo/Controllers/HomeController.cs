@@ -12,33 +12,23 @@ namespace MVCDemo.Controllers
     {
         public ActionResult Index()
         {
-            return View();
-        }
-
-        public ActionResult About()
-        {
-            ViewBag.Message = "Your application description page.";
             List<Customer> customers = new List<Customer>();
 
             for (int i = 0; i < 50; i++)
             {
-                customers.Add(new Customer { CustomerName = $"Customer number: {i+1}" });
+                customers.Add(new Customer { CustomerId = 0, CustomerName = $"Customer number: {i + 1}" });
             }
 
             using (var dbContext = new MvcDemoDbContext())
             {
-                //dbContext.Customers.AddRange(customers);
                 var abc = dbContext.Customers.Where(c => c.CustomerId > 0).ToList();
-                dbContext.Customers.Add(new Customer { CustomerName = $"Customer number: 1" });
+
+                var customer = new Customer { CustomerName = $"Customer number: 1" };
+
+                dbContext.Customers.Add(customer);
+
                 dbContext.SaveChanges();
             }
-
-                return View();
-        }
-
-        public ActionResult Contact()
-        {
-            ViewBag.Message = "Your contact page.";
 
             return View();
         }
