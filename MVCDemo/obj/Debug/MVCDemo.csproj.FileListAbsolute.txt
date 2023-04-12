@@ -114,3 +114,4 @@ D:\Workspace\Sample\MVCDemo\obj\Debug\MVCDemo.csproj.CoreCompileInputs.cache
 D:\Workspace\Sample\MVCDemo\obj\Debug\MVCDemo.csproj.CopyComplete
 D:\Workspace\Sample\MVCDemo\obj\Debug\MVCDemo.dll
 D:\Workspace\Sample\MVCDemo\obj\Debug\MVCDemo.pdb
+D:\Workspace\Sample\MVCDemo\obj\Debug\MVCDemo.csproj.AssemblyReference.cache
