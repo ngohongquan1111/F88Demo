@@ -1,4 +1,5 @@
 ﻿using MVCDemo.Service.Domain;
+using MVCDemo.Service.Domain.BusinessModel.Interfaces;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -13,16 +14,17 @@ namespace MVCDemo.Service.Workflow
 
     public class WorkFlow : IWorkFlow<IRequest, IResponse>
     {
-        private readonly IRequestFactoryContext _requestFactoryContext;
+        private readonly IRequestFactoryContext<IRequest, ICandidate> _requestFactoryContext;
 
-        public WorkFlow(IRequestFactoryContext requestFactoryContext)
+        public WorkFlow(IRequestFactoryContext<IRequest, ICandidate> requestFactoryContext)
         {
             _requestFactoryContext = requestFactoryContext;
         }
 
         public IResponse ExecuteRequest(IRequest request)
         {
-            var request = _requestFactoryContext.CreatRequest(request);
+            //var request = _requestFactoryContext.CreatRequest(request);
+            throw new NotImplementedException();
         }
     }
 }

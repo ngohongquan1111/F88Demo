@@ -3,6 +3,7 @@ using System.ComponentModel.DataAnnotations.Schema;
 
 namespace MVCDemo.Service.Domain.Entity
 {
+    [Table ("loanapplication")]
     public class LoanApplication
     {
         [Key]

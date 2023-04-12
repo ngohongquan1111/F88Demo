@@ -1,4 +1,6 @@
-﻿using System;
+﻿using MVCDemo.Service.DataBaseContext;
+using MVCDemo.Service.Domain;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -16,8 +18,22 @@ namespace MVCDemo.Controllers
         public ActionResult About()
         {
             ViewBag.Message = "Your application description page.";
+            List<Customer> customers = new List<Customer>();
 
-            return View();
+            for (int i = 0; i < 50; i++)
+            {
+                customers.Add(new Customer { CustomerName = $"Customer number: {i+1}" });
+            }
+
+            using (var dbContext = new MvcDemoDbContext())
+            {
+                //dbContext.Customers.AddRange(customers);
+                var abc = dbContext.Customers.Where(c => c.CustomerId > 0).ToList();
+                dbContext.Customers.Add(new Customer { CustomerName = $"Customer number: 1" });
+                dbContext.SaveChanges();
+            }
+
+                return View();
         }
 
         public ActionResult Contact()

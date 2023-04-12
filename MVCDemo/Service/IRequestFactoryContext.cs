@@ -9,12 +9,12 @@ namespace MVCDemo.Service
 {
     public interface IRequestFactoryContext<in TRequest, out TCandidate>
     {
-        TCandidate CreatRequest(TRequest request);
+        TCandidate CreateJob(TRequest request);
     }
 
     public class RequestFactory : IRequestFactoryContext<IRequest, ICandidate>
     {
-        public ICandidate CreatRequest(IRequest request)
+        public ICandidate CreateJob(IRequest request)
         {
             throw new NotImplementedException();
         }
