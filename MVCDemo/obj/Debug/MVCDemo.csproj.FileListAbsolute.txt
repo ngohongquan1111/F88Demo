@@ -115,3 +115,5 @@ D:\Workspace\Sample\MVCDemo\obj\Debug\MVCDemo.csproj.CopyComplete
 D:\Workspace\Sample\MVCDemo\obj\Debug\MVCDemo.dll
 D:\Workspace\Sample\MVCDemo\obj\Debug\MVCDemo.pdb
 D:\Workspace\Sample\MVCDemo\obj\Debug\MVCDemo.csproj.AssemblyReference.cache
+D:\Workspace\Sample\MVCDemo\bin\Microsoft.Extensions.DependencyInjection.Abstractions.dll
+D:\Workspace\Sample\MVCDemo\bin\Microsoft.Extensions.DependencyInjection.Abstractions.xml

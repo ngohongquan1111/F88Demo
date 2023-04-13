@@ -79,6 +79,9 @@
       <HintPath>packages\Microsoft.Bcl.AsyncInterfaces.7.0.0\lib\net462\Microsoft.Bcl.AsyncInterfaces.dll</HintPath>
     </Reference>
     <Reference Include="Microsoft.CSharp" />
+    <Reference Include="Microsoft.Extensions.DependencyInjection.Abstractions, Version=7.0.0.0, Culture=neutral, PublicKeyToken=adb9793829ddae60, processorArchitecture=MSIL">
+      <HintPath>packages\Microsoft.Extensions.DependencyInjection.Abstractions.7.0.0\lib\net462\Microsoft.Extensions.DependencyInjection.Abstractions.dll</HintPath>
+    </Reference>
     <Reference Include="MySql.Data, Version=8.0.32.0, Culture=neutral, PublicKeyToken=c5687fc88969c44d, processorArchitecture=MSIL">
       <HintPath>packages\MySql.Data.8.0.32.1\lib\net48\MySql.Data.dll</HintPath>
     </Reference>
@@ -184,22 +187,29 @@
     <Compile Include="App_Start\BundleConfig.cs" />
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="BaseServiceHandler\Domain\BaseContext\IRequest.cs" />
+    <Compile Include="BaseServiceHandler\Domain\BaseContext\IResponse.cs" />
+    <Compile Include="BaseServiceHandler\Domain\BaseContext\IScheduleJobContext.cs" />
+    <Compile Include="BaseServiceHandler\BaseRequestContextFactory.cs" />
+    <Compile Include="BaseServiceHandler\Domain\Model\IJobContext.cs" />
+    <Compile Include="BaseServiceHandler\JobBase.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="LoanService\Domain\BusinessModel\Interfaces\ILoanScheduleJobContext.cs" />
+    <Compile Include="LoanService\Domain\BusinessModel\Models\DeleteLoanApplicationRequest.cs" />
+    <Compile Include="LoanService\Domain\BusinessModel\Models\AddLoanApplicationRequest.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="DataBaseContext\MvcDemoDbContext.cs" />
-    <Compile Include="Service\Domain\BusinessModel\Interfaces\ICandidate.cs" />
-    <Compile Include="Service\Domain\BusinessModel\Interfaces\IRequest.cs" />
-    <Compile Include="Service\Domain\BusinessModel\Interfaces\IResponse.cs" />
-    <Compile Include="Service\Domain\BusinessModel\Models\Candidate.cs" />
-    <Compile Include="Service\Domain\BusinessModel\Models\RejectLoanApplicationRequest.cs" />
-    <Compile Include="Service\Domain\BusinessModel\Models\ApproveLoanApplicationRequest.cs" />
-    <Compile Include="Service\Domain\Entity\Customer.cs" />
-    <Compile Include="Service\Domain\Entity\LoanApplication.cs" />
-    <Compile Include="Service\IRequestFactoryContext.cs" />
-    <Compile Include="Service\Workflow\WorkFlow.cs" />
+    <Compile Include="LoanService\Domain\BusinessModel\Interfaces\ILoanRequest.cs" />
+    <Compile Include="LoanService\Domain\BusinessModel\Interfaces\ILoanResponse.cs" />
+    <Compile Include="LoanService\Domain\BusinessModel\Models\RejectLoanApplicationRequest.cs" />
+    <Compile Include="LoanService\Domain\BusinessModel\Models\ApproveLoanApplicationRequest.cs" />
+    <Compile Include="LoanService\Domain\Entity\Customer.cs" />
+    <Compile Include="LoanService\Domain\Entity\LoanApplication.cs" />
+    <Compile Include="LoanService\IRequestFactoryContext.cs" />
+    <Compile Include="LoanService\Workflow\WorkFlow.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Content\bootstrap-theme.css" />
@@ -213,12 +223,12 @@
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
     <None Include="Scripts\jquery-3.4.1.intellisense.js" />
-    <Content Include="Scripts\client-app\loan-application-build\AboutView-1bdd554b.js" />
-    <Content Include="Scripts\client-app\loan-application-build\AboutView-4d995ba2.css" />
+    <Content Include="Scripts\client-app\loan-application-build\AboutView.css" />
+    <Content Include="Scripts\client-app\loan-application-build\AboutView.js" />
     <Content Include="Scripts\client-app\loan-application-build\app.js" />
     <Content Include="Scripts\client-app\loan-application-build\favicon.ico" />
-    <Content Include="Scripts\client-app\loan-application-build\logo-277e0e97.svg" />
-    <Content Include="Scripts\client-app\loan-application-build\main-81e4655a.css" />
+    <Content Include="Scripts\client-app\loan-application-build\logo.svg" />
+    <Content Include="Scripts\client-app\loan-application-build\main.css" />
     <Content Include="Scripts\jquery-3.4.1.js" />
     <Content Include="Scripts\jquery-3.4.1.min.js" />
     <Content Include="Scripts\jquery-3.4.1.slim.js" />
@@ -245,8 +255,8 @@
   <ItemGroup>
     <Folder Include="App_Data\" />
     <Folder Include="Common\" />
+    <Folder Include="LoanService\Jobs\" />
     <Folder Include="Models\" />
-    <Folder Include="Service\Jobs\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff2" />

@@ -1,5 +1,4 @@
 ﻿using MVCDemo.Service.Domain;
-using MVCDemo.Service.Domain.BusinessModel.Interfaces;
 using System;
 using System.Collections.Generic;
 using System.Linq;

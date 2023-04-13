@@ -20,10 +20,10 @@ export default defineConfig({
       input: './src/main.js',
       output: {
         entryFileNames: 'app.js',
-        chunkFileNames: '[name]-[hash].js',
-        assetFileNames: '[name]-[hash][extname]',
+        chunkFileNames: '[name].js',
+        assetFileNames: '[name][extname]',
       }
      }  //specify the entry point for the application.
-  }
+  },
  // base: '/Home/Index/' //property sets up the base URL for the application. In this case, it is set to /vue/, which means that the application will be served from http://localhost:port/vue/ when running the .NET MVC application
 })

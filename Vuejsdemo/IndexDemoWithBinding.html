@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset='utf-8'>
+    <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+    <title>Page Title</title>
+    <meta name='viewport' content='width=device-width, initial-scale=1'>
+    <link rel='stylesheet' type='text/css' media='screen' href='main.css'>
+    <script src='main.js'></script>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+</head>
+<body>
+    <div id="app">
+        {{message}}
+    </div>
+
+    <div id="app-2">
+        <span v-bind:title="message">
+          Rê chuột lên đây một vài giây để xem thuộc tính `title` được bind!
+        </span>
+      </div>
+
+      <div id="app-3">
+        <div v-for="todo in todos">
+            {{todo.text}}
+        </div>
+      </div>
+
+      <div id="app-4">
+        <p>
+          {{message}}
+        </p>
+        <button v-on:click="reverseMessage">Reverse Message</button>
+      </div>
+
+      <div id="app-5">
+         <p>{{message}}</p>
+         <input v-model="message">
+      </div>
+
+      <div id="app-6">
+        <p v-if="seen">"Hello mother fucker"</p>
+        <button v-on:click="changeVisibility">{{message}}</button>
+      </div>
+      
+    <script>
+        var app = new Vue ({
+            el:'#app',
+            data: {
+                message: 'Hello World!'
+            }
+        })
+
+        var app2 = new Vue({
+            el:'#app-2',
+            data: {
+                message:'Bạn đã mở trang này vào ' + new Date().toLocaleDateString()
+            }
+        })
+
+        var app3 = new Vue({
+            el:'#app-3',
+            data:{
+                todos:[
+                    {
+                        text: 'Hello'
+                    },
+                    {
+                        text: 'There'
+                    },
+                    {
+                        text: 'Mother'
+                    },
+                    {
+                        text: 'Fucker'
+                    }
+                ]
+            }
+        })
+        
+        var app4 = new Vue({
+            el:'#app-4',
+            data:{
+                message:'AAA AAA AAA AAA AAA AAA AAA AAB'
+            },
+            methods:{
+                reverseMessage: function() {
+                    this.message = this.message.split(' ').reverse().join(' ')
+                }
+            }
+        })
+    
+        var app5 = new Vue({
+            el:'#app-5',
+            data:{
+                message:'Fix this'
+            }
+        })
+    
+        var app6 = new Vue({
+            el:'#app-6',
+            data:{
+                seen: true,
+                message: 'Click để ẩn'
+            },
+            methods:{
+                changeVisibility: function() {
+                    this.seen = !this.seen;
+                    this.message = this.seen ? 'Click để ẩn' : 'Click để hiện' 
+                }
+            }
+        })
+    </script>
+</body>
+</html>

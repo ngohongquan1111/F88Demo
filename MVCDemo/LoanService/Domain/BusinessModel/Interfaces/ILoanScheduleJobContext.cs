@@ -5,7 +5,7 @@ using System.Web;
 
 namespace MVCDemo.Service.Domain
 {
-    public interface IRequest
+    public interface IScheduleJobContext
     {
     }
 }
