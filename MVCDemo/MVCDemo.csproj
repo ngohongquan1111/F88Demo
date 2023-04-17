@@ -54,9 +54,6 @@
     <Reference Include="Castle.Core, Version=4.0.0.0, Culture=neutral, PublicKeyToken=407dd0808d44fbdc, processorArchitecture=MSIL">
       <HintPath>packages\Castle.Core.4.4.1\lib\net45\Castle.Core.dll</HintPath>
     </Reference>
-    <Reference Include="Castle.Windsor, Version=5.0.0.0, Culture=neutral, PublicKeyToken=407dd0808d44fbdc, processorArchitecture=MSIL">
-      <HintPath>packages\Castle.Windsor.5.1.2\lib\net45\Castle.Windsor.dll</HintPath>
-    </Reference>
     <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
       <HintPath>packages\EntityFramework.6.4.4\lib\net45\EntityFramework.dll</HintPath>
     </Reference>
@@ -79,6 +76,9 @@
       <HintPath>packages\Microsoft.Bcl.AsyncInterfaces.7.0.0\lib\net462\Microsoft.Bcl.AsyncInterfaces.dll</HintPath>
     </Reference>
     <Reference Include="Microsoft.CSharp" />
+    <Reference Include="Microsoft.Extensions.DependencyInjection, Version=7.0.0.0, Culture=neutral, PublicKeyToken=adb9793829ddae60, processorArchitecture=MSIL">
+      <HintPath>packages\Microsoft.Extensions.DependencyInjection.7.0.0\lib\net462\Microsoft.Extensions.DependencyInjection.dll</HintPath>
+    </Reference>
     <Reference Include="Microsoft.Extensions.DependencyInjection.Abstractions, Version=7.0.0.0, Culture=neutral, PublicKeyToken=adb9793829ddae60, processorArchitecture=MSIL">
       <HintPath>packages\Microsoft.Extensions.DependencyInjection.Abstractions.7.0.0\lib\net462\Microsoft.Extensions.DependencyInjection.Abstractions.dll</HintPath>
     </Reference>
@@ -187,29 +187,32 @@
     <Compile Include="App_Start\BundleConfig.cs" />
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="BaseServiceHandler\Jobs\JobBase.cs" />
+    <Compile Include="BaseServiceHandler\Services\JobContextFactory.cs" />
+    <Compile Include="BaseServiceHandler\ServiceHandler.cs" />
     <Compile Include="BaseServiceHandler\Domain\BaseContext\IRequest.cs" />
     <Compile Include="BaseServiceHandler\Domain\BaseContext\IResponse.cs" />
     <Compile Include="BaseServiceHandler\Domain\BaseContext\IScheduleJobContext.cs" />
-    <Compile Include="BaseServiceHandler\BaseRequestContextFactory.cs" />
+    <Compile Include="BaseServiceHandler\Services\BaseRequestContextFactory.cs" />
     <Compile Include="BaseServiceHandler\Domain\Model\IJobContext.cs" />
-    <Compile Include="BaseServiceHandler\JobBase.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="DataBaseContext\Entity\Customer.cs" />
+    <Compile Include="DataBaseContext\Entity\LoanApplication.cs" />
+    <Compile Include="DataBaseContext\IMvcDemoDbContext.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
-    <Compile Include="LoanService\Domain\BusinessModel\Interfaces\ILoanScheduleJobContext.cs" />
-    <Compile Include="LoanService\Domain\BusinessModel\Models\DeleteLoanApplicationRequest.cs" />
-    <Compile Include="LoanService\Domain\BusinessModel\Models\AddLoanApplicationRequest.cs" />
+    <Compile Include="Models\LoanApplicationModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="DataBaseContext\MvcDemoDbContext.cs" />
-    <Compile Include="LoanService\Domain\BusinessModel\Interfaces\ILoanRequest.cs" />
-    <Compile Include="LoanService\Domain\BusinessModel\Interfaces\ILoanResponse.cs" />
-    <Compile Include="LoanService\Domain\BusinessModel\Models\RejectLoanApplicationRequest.cs" />
-    <Compile Include="LoanService\Domain\BusinessModel\Models\ApproveLoanApplicationRequest.cs" />
-    <Compile Include="LoanService\Domain\Entity\Customer.cs" />
-    <Compile Include="LoanService\Domain\Entity\LoanApplication.cs" />
-    <Compile Include="LoanService\IRequestFactoryContext.cs" />
-    <Compile Include="LoanService\Workflow\WorkFlow.cs" />
+    <Compile Include="Services\LoanServices\AddLoan\AddLoanServiceHandler.cs" />
+    <Compile Include="Services\LoanServices\AddLoan\Domain\Context\IAddLoanRequest.cs" />
+    <Compile Include="Services\LoanServices\AddLoan\Domain\Context\IAddLoanResponse.cs" />
+    <Compile Include="Services\LoanServices\AddLoan\Domain\Model\AddLoanJobContext.cs" />
+    <Compile Include="Services\LoanServices\AddLoan\Job\AddLoanJob.cs" />
+    <Compile Include="Services\LoanServices\AddLoan\Service\AddLoanJobContextFactory.cs" />
+    <Compile Include="Services\LoanServices\AddLoan\Service\LoanRequestContextFactory.cs" />
+    <Compile Include="Services\LoanServices\AddLoan\TestDI.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Content\bootstrap-theme.css" />
@@ -255,8 +258,6 @@
   <ItemGroup>
     <Folder Include="App_Data\" />
     <Folder Include="Common\" />
-    <Folder Include="LoanService\Jobs\" />
-    <Folder Include="Models\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff2" />
